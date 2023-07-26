@@ -38,11 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #applications
     'api',
     'product',
     'search',
+
+    #third party packages
     'rest_framework',
     'rest_framework.authtoken',
+    
+    #third party api services
+    'algoliasearch_django',
 
 ]
 
@@ -145,3 +152,11 @@ REST_FRAMEWORK = {
     "PAGE_SIZE":2
 }
 
+
+# environment variable -> django-dotenv -> reads.en
+
+ALGOLIA = {
+    'APPLICATION_ID': 'D1PLQ1RXD5',
+    'API_KEY': 'dca5c880843a0134316a553f57e4f8f7',
+    'INDEX_PREFIX':'home'
+}

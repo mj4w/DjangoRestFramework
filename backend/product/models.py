@@ -2,9 +2,13 @@ from django.db import models
 from django.conf import settings
 from django.db.models.query import QuerySet
 from django.db.models import Q
+import random
+
 
 User = settings.AUTH_USER_MODEL
 
+
+TAGS_MODELS_VALUES = ['electronics','cars','boats','movies','cameras']
 # class UserQuerySet(models.QuerySet):
 #     def search(self,query,user=None):
 #         lookup = Q(username__icontains=query)
@@ -58,10 +62,13 @@ class Product(models.Model):
     #connect Product Manager to Product
     objects = ProductManager()
     
+    def is_public(self) -> bool:
+        return self.public # True or False
+    
+    def get_tags_list(self):
+        return [random.choice(TAGS_MODELS_VALUES)]
+
+
     @property
     def sale_price(self):
         return "%.2f" %(float(self.price) * 0.8)
-
-
-    def get_discount(self):
-        return "211"
