@@ -12,6 +12,7 @@ class ProductSerializer(serializers.ModelSerializer):
     url = serializers.HyperlinkedIdentityField(view_name='product-detail',lookup_field='pk')
     #for validation
     title = serializers.CharField(validators=[validate_title_no_hello,unique_product_title])
+    # source function make replace what you put inside 
     # name = serializers.CharField(source='title',read_only=True) 
 
     # email = serializers.EmailField(write_only=True)
@@ -28,6 +29,7 @@ class ProductSerializer(serializers.ModelSerializer):
                   'price',
                   'sale_price',
                   'public',
+                  'path',
                 ]
 
 

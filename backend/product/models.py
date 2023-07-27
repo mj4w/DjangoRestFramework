@@ -61,6 +61,9 @@ class Product(models.Model):
     
     #connect Product Manager to Product
     objects = ProductManager()
+
+    def path(self):
+        return f"/products/{self.pk}/"
     
     def is_public(self) -> bool:
         return self.public # True or False
